@@ -1,0 +1,47 @@
+﻿@model IEnumerable<MVCForWebApp2.Models.DepartmentTb>
+
+@{
+    ViewData["Title"] = "DepartmentView";
+}
+
+<h1>DepartmentView</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DLocation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DLocation)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.DId }) |
+                @Html.ActionLink("Details", "Details", new { id=item.DId  }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.DId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
